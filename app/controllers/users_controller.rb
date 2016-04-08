@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     #member_signed_in?
     #current_member
     #member_session
+  def index 
+        @users = User.all
+  end
   def new
         @user = User.new
         sign_in :user, @user 
@@ -13,6 +16,8 @@ class UsersController < ApplicationController
   
   def show
        @user = current_user
+       #@user = User.find(params[:id])
+       render :show
   end
   
   def create
