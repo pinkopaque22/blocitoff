@@ -1,6 +1,6 @@
 module UsersHelper
-  def full_name
-      @user.first_name + " " + @user.last_name
+  def user_profile
+    @user.email
   end
       
 end

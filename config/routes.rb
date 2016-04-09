@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   #get 'users/show'
-  resources :users, only: [:new, :create, :show, :index]
+  resources :users
 #OR: resources :users, :only => [:show]
   #root 'welcome#index'
   root 'users#show'

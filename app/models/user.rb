@@ -4,9 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
          
+#   def avatar_url(size)
+#      gravatar_id = Digest::MD5::hexdigest(self.email).downcase
+#      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+#   end
+   
    def avatar_url(size)
      gravatar_id = Digest::MD5::hexdigest(self.email).downcase
-     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+     "http://icdn2.digitaltrends.com/image/idris-elba-luther-thor-dark-towerfeatured-90x90-c.jpg"
    end
 
 #////////Do I need the below if I am using Devise?
