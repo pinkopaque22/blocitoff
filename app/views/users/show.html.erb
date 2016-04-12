@@ -1,8 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User Profile</h1>
+<p>This is the User Profile Page</p>
 
 
 
-<!-- #print out user info here
+<div class="row">
+   <div class="col-md-8">
+     <div class="media">
+       <br />
+       <% avatar_url = @user.avatar_url(128) %>
+       <% if avatar_url %>
+         <div class="media-left">
+           <%= image_tag avatar_url, class: 'media-object' %>
+         </div>
+       <% end %>
+       <div class="media-body">
+         <h2 class="media-heading"><%= @user.email %></h2>
+         </div>
+     </div>
+   </div>
+ </div>
 
-#name, #email -->
+ 
