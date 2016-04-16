@@ -1,9 +1,5 @@
-<h1>User Profile</h1>
-       <div class="media-body">
-         <h2 class="media-heading"><%= @user.email %></h2>
-         </div>
-     </div>
-   </div>
- </div>
+<h1>User Profile for <%= @user.email %></h1>
 
- 
+<%= link_to "My Todos", user_items_path(@user) %>
+
+
