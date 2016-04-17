@@ -42,6 +42,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
   gem 'vcr'
+  gem 'faker', '~> 1.6.3'
 end
 
 group :development do
