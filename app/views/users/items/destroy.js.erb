@@ -1,0 +1,7 @@
+<% if @items.destroyed? %>
+   $('#item-<%= @item.id %>').hide();
+   $('.js-item').html("<%= pluralize(@item.user,'item') %>");
+ <% else %>
+   $('.flash').prepend("<div class='alert alert-danger'><button type='button' 
+   class='close' data-dismiss='alert'>&times;</button><%= flash.now[:alert] %></div>");
+ <% end %>

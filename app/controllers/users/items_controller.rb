@@ -6,13 +6,18 @@ class Users::ItemsController < ApplicationController
   end
   
  def create
-   @new_item = @user.items.new(item_params)
-   
-   if @new_item.save
-     redirect_to user_items_path(@user), notice: 'Item saved successfully'
-   else
-     redirect_to user_items_path(@user), notice: 'Item failed to save'
+    @new_item = @user.items.new(item_params)
+    @user.items = current_user.items
+     if @new_item.save
+             flash[:notice] = "Item saved successfully."
+     else
+             flash[:alert] = "Item failed to save."
    end
+     respond_to do |format|
+       format.html
+       format.js
+     end
+
  end
   def show
     @items = current_user.items
@@ -22,6 +27,20 @@ class Users::ItemsController < ApplicationController
   def new
     @items = Item.new
     redirect_to items_path
+  end
+  def destroy
+     @user = User.find(params[:user_id])
+     @items = @user.items.find(params[:id])
+     if @item.destroy
+       flash[:notice] = "Item was deleted successfully."
+     else
+       flash[:alert] = "Item couldn't be deleted. Try again."
+     end
+     respond_to do |format|
+       format.html
+       format.js
+     end
+
   end
   def edit
   end
