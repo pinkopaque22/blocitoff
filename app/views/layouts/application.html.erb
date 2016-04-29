@@ -18,9 +18,7 @@
   <% end %>
   
   <div class="main">
-    <%= yield %>
-  </div>
-   <div class="flash">
+      <div class="flash">
        <% if flash[:notice] %>
          <div class="alert alert-success">
            <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -38,8 +36,10 @@
          </div>
        <% end %>
      </div>
+    <%= yield %>
+  </div>
+   
 
-     <%= yield %>
    </div>
 
 </body>

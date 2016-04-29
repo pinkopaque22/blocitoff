@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :get_user, only: [:show]
-  def index
-      @user = User.all
-  end
+  
   def create
       @user = User.new
       @user.name = params[:user][:name]
@@ -17,6 +15,17 @@ class UsersController < ApplicationController
         else flash.now[:alert] = "Error creating account, no worries just try again, we'll wait."
             render :new
         end
+  end
+  def destroy
+    @user = current_user.items.find(params[:item.id]).destroy
+    @item = user_path(@user, @item)
+       if current_user.items.destroy
+        flash[:notice] = "Item was deleted successfully."
+           redirect_to user_path
+       else
+       flash[:alert] = "Item couldn't be deleted. Try again."
+       redirect_to user_path
+       end
   end
   
   def show

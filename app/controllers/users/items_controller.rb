@@ -2,46 +2,53 @@ class Users::ItemsController < ApplicationController
   before_action :get_user
   
   def index
-    @items = @user.items
+    @item = current_user.items
   end
   
  def create
+    @user = current_user
     @new_item = @user.items.new(item_params)
-    @user.items = current_user.items
      if @new_item.save
              flash[:notice] = "Item saved successfully."
+        redirect_to @user
      else
              flash[:alert] = "Item failed to save."
-   end
-     respond_to do |format|
-       format.html
-       format.js
+       redirect_to @user
      end
+    #  respond_to do |format|
+    #   format.html
+    #   format.js
+    #  end
 
  end
+ 
   def show
-    @items = current_user.items
+    @item = current_user.items
     @user = current_user
-    render :show
+        render :show
   end
+  
   def new
-    @items = Item.new
-    redirect_to items_path
+    @user = current_user
+    @item = Item.new
+        redirect_to @user
   end
+  
   def destroy
-     @user = User.find(params[:user_id])
-     @items = @user.items.find(params[:id])
-     if @item.destroy
-       flash[:notice] = "Item was deleted successfully."
-     else
-       flash[:alert] = "Item couldn't be deleted. Try again."
-     end
-     respond_to do |format|
-       format.html
-       format.js
-     end
-
+      @item = @user.items.find(params[:id])
+        if @item.destroy
+            flash[:notice] = "Item was deleted successfully."
+            redirect_to @user
+        else
+            flash[:alert] = "Item couldn't be deleted. Try again."
+            redirect_to @user
+        end
+    #  respond_to do |format|
+    #   format.html {redirect_to @user}
+    #   format.js
+    #  end
   end
+  
   def edit
   end
   
