@@ -1,6 +1,6 @@
 <h1>Create new task</h1>
 
-<%= form_for ([@user, @user.items.new]) do |f| %>
+<%= form_for [@user, @user.items.new], remote: true do |f| %>
    <div class="form-group">
        <strong>
       <%= f.label :name %>

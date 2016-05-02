@@ -8,17 +8,25 @@ class Users::ItemsController < ApplicationController
  def create
     @user = current_user
     @new_item = @user.items.new(item_params)
-     if @new_item.save
-             flash[:notice] = "Item saved successfully."
-        redirect_to @user
-     else
-             flash[:alert] = "Item failed to save."
-       redirect_to @user
-     end
-    #  respond_to do |format|
-    #   format.html
-    #   format.js
+        flash[:notice] = "Item was successfully created." if @new_item.save
+        respond_with(@new_item)
+        end
+    #  if @new_item.save
+    #          flash[:notice] = "Item saved successfully."
+        #redirect_to @user
+    #  else
+    #          flash[:alert] = "Item failed to save."
+       #redirect_to @user
     #  end
+    #  respond_to do |format|
+    #   format.html {redirect_to @user}
+    #   format.js {redirect_to @user}
+end
+
+
+
+
+
 
  end
  
@@ -31,22 +39,27 @@ class Users::ItemsController < ApplicationController
   def new
     @user = current_user
     @item = Item.new
-        redirect_to @user
+        #redirect_to @user
+     respond_to do |format|
+      format.html {redirect_to @user}
+      format.js {redirect_to @user}
+     end
   end
+  
   
   def destroy
       @item = @user.items.find(params[:id])
         if @item.destroy
             flash[:notice] = "Item was deleted successfully."
-            redirect_to @user
+            #redirect_to @user
         else
             flash[:alert] = "Item couldn't be deleted. Try again."
-            redirect_to @user
+            #redirect_to @user
         end
-    #  respond_to do |format|
-    #   format.html {redirect_to @user}
-    #   format.js
-    #  end
+     respond_to do |format|
+      format.html {redirect_to @user}
+      format.js {redirect_to @user}
+     end
   end
   
   def edit

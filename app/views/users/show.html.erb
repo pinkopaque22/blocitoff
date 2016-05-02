@@ -1,13 +1,11 @@
 <h1>User Profile for <%= @user.email %></h1>
 <h3>All Todo Items for <%= current_user.email %></h3>
-    <ul>
-        <%= render partial: 'users/items/item', collection: @items, locals: {user: @user} %>  
+   <div class='js-comments'>
+        <ul>
+        <%= render partial: 'users/items/item', collection: @items, locals: {user: @user} %> 
+   <div class='new-item'>
         <%= render partial: 'users/items/form' %>
-                
-
-    </ul>
+         </ul>
+   </div>
+   </div>
         
-
-   
-
-
