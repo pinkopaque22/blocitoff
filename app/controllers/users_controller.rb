@@ -24,7 +24,7 @@ class UsersController < ApplicationController
            redirect_to user_path
        else
        flash[:alert] = "Item couldn't be deleted. Try again."
-       redirect_to user_path
+           redirect_to user_path
        end
   end
   

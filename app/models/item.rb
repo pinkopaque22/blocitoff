@@ -5,9 +5,9 @@ class Item < ActiveRecord::Base
   def index
     @items = Item.all
   end
-  def create
-    @items = current_user.items
-  end
+  # def create
+  #   @items = current_user.items
+  # end
   
   def new
     @items = Item.new
