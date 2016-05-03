@@ -9,10 +9,9 @@ class Users::ItemsController < ApplicationController
     @user = current_user
     @item = @user.items.new(item_params)
         flash[:notice] = "Item was successfully created." if @item.save
-        #respond_with(@new_item)
       respond_to do |format|
         format.html {redirect_to @user}
-        format.js #{redirect_to @user}
+        format.js
       end
  end
  
@@ -25,10 +24,9 @@ class Users::ItemsController < ApplicationController
   def new
     @user = current_user
     @item = Item.new
-        #redirect_to @user
       respond_to do |format|
         format.html {redirect_to @user}
-        format.js #{redirect_to @user}
+        format.js 
      end
   end
   
@@ -37,14 +35,12 @@ class Users::ItemsController < ApplicationController
       @item = @user.items.find(params[:id])
         if @item.destroy
             flash[:notice] = "Item was deleted successfully."
-            #redirect_to @user
         else
             flash[:alert] = "Item couldn't be deleted. Try again."
-            #redirect_to @user
         end
       respond_to do |format|
         format.html {redirect_to @user}
-        format.js #{redirect_to @user}
+        format.js 
       end
   end
   

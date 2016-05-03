@@ -1,11 +1,31 @@
 <h1>User Profile for <%= @user.email %></h1>
 <h3>All Todo Items for <%= current_user.email %></h3>
-   
-        <ul class='js-items'>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-striped">
+        <tr>
+          <th>Task</th>
+          <th>Time Remaining</th>
+          <th>Complete Task</th>
+        </tr>
+      <ul class='js-items'>
         <%= render partial: 'users/items/item', collection: @items, locals: {user: @user} %>
         </ul>
-   <div class='new-item'>
+    </table>
+  </div>
+    <div class='new-item'>
         <%= render partial: 'users/items/form' %>
    </div>
- 
-        
+    
+  <br>
+  <div class="media-heading">
+    <p><em>Task's have a 7 day time frame for you to complete them. If a task is not completed in 7 days it will be removed from your list.</em></p>
+  </div>
+</div>
+
+
+  
+   
+      
+
