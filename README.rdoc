@@ -1,28 +1,27 @@
 == README
+Rails 4.2.6
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocitoff is a simple To-Do list App, with self destructing items after 7 days. 
+Features:
+~User Sign-Up/Sign-In/Sign-Out with Devise gem
+~User Profile
+~Create Tasks
+~Glyphicon Delete Tasks
+~Tasks Time Remaining
+~Self Destruct Expired Tasks
 
-Things you may want to cover:
+Planned features(if any):
+~Users Show set to Private
 
-* Ruby version
+Known bugs:
+~none
 
-* System dependencies
+What I learnt building Blocitoff:
+~How to implement 'distance_of_time_in_words'
+~faker data is fun, I suggest Hipster
+~git hygiene
+~Things that belong in models and things that don't
 
-* Configuration
+Link to running Heroku Versions:
+~coming soon
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
