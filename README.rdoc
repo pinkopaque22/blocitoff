@@ -2,6 +2,7 @@
 Rails 4.2.6
 
 Blocitoff is a simple To-Do list App, with self destructing items after 7 days. 
+
 Features:
 ~User Sign-Up/Sign-In/Sign-Out with Devise gem
 ~User Profile
